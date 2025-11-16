@@ -1,10 +1,1 @@
-creating a user:::
-
-email
-firstName
-middle
-lastName
-age
-state
-country
-phone number
+A practice repository for building and experimenting with backend using Node.js and TypeScript.
