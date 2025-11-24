@@ -50,16 +50,7 @@ Core Stack:
 -PostgreSQL (coming soon)
 
 **_📁 Project Structure_**
-src/
-├── config/ # DB connections, environment config
-├── constants/ # Common enums, status codes, etc.
-├── middleware/ # Auth middleware, error handlers, validations
-├── routes/ # Application route modules
-├── controllers/ # Controller logic for each module
-├── services/ # Business logic / DB operations
-├── utils/ # Helpers, AppError, JWT helpers, etc.
-├── modules/ # Individual app modules (blog, ecommerce, quiz...)
-└── server.ts # Main server entry
+
 
 Aliases are used throughout the project:
 @/utils → src/utils
