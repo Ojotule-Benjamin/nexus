@@ -1,6 +1,6 @@
 import express, { type Response, type NextFunction } from "express";
 import jwt from "jsonwebtoken";
-import { type AuthRequest, type IUser } from "../types/index.ds.ts";
+import type { AuthRequest, IUser } from "@/types/index.ds";
 
 export const auth = (req: AuthRequest, res: Response, next: NextFunction) => {
   const token = req.headers.get("authorization")?.split(" ")[1];

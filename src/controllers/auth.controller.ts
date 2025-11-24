@@ -1,8 +1,8 @@
-import user from "../models/user.model.ts";
 import type { Request, Response } from "express";
 import bcrypt from "bcryptjs";
-import { STATUS } from "../constants/statusCodes.ts";
-import { ApiResponse } from "../utils/ApiResponse.ts";
+import user from "@/models/user.model";
+import { STATUS } from "@/constants/statusCodes";
+import { ApiResponse } from "@/utils/ApiResponse";
 import jwt from "jsonwebtoken";
 
 export const register = async (req: Request, res: Response) => {
@@ -109,7 +109,7 @@ export const login = async (req: Request, res: Response) => {
         email: existingUser.email,
         role: existingUser.role,
       },
-      process.env.JWT_SECRET || "",
+      process.env.ACCESS_TOKEN_SECRET || "",
       { expiresIn: "5h" }
     );
 

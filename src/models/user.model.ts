@@ -1,5 +1,5 @@
 import mongoose from "mongoose";
-import type { IUser } from "../types/index.ds.ts";
+import type { IUser } from "@/types/index.ds";
 
 const userSchema = new mongoose.Schema<IUser>(
   {
@@ -24,7 +24,7 @@ const userSchema = new mongoose.Schema<IUser>(
       required: true,
     },
     age: {
-      type: Number,
+      type: Date,
     },
     state: {
       type: String,
@@ -44,6 +44,9 @@ const userSchema = new mongoose.Schema<IUser>(
     isVerified: {
       type: Boolean,
       default: false,
+    },
+    refreshToken: {
+      type: String,
     },
   },
   {

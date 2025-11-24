@@ -7,12 +7,13 @@ export interface IUser extends Document {
   firstName: string;
   middleName?: string;
   lastName: string;
-  age: number;
+  age: Date;
   state: string;
   country: string;
   phoneNumber: string;
   role: "user" | "admin";
   isVerified: boolean;
+  refreshToken?: string;
 }
 
 export interface AuthRequest extends Request {

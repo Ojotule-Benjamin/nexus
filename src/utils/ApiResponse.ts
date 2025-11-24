@@ -1,7 +1,6 @@
 import type { Response } from "express";
-import { STATUS } from "../constants/statusCodes.ts";
+import { STATUS } from "@/constants/statusCodes";
 import type { ApiResponseOptions } from "../types/index.ds.ts";
-import { stat } from "fs";
 
 export class ApiResponse {
   static success<T = unknown>({

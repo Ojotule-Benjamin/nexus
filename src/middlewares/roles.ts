@@ -1,5 +1,5 @@
 import express, { type Response, type NextFunction } from "express";
-import { type AuthRequest, type IUser } from "../types/index.ds.ts";
+import { AuthRequest } from "@/types/index.ds";
 
 export const permit = (...allowedRoles: string[]) => {
   return (req: AuthRequest, res: Response, next: NextFunction) => {

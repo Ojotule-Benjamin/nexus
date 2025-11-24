@@ -1,5 +1,6 @@
-import express, { type Request, type Response } from "express";
-import { register, login } from "../controllers/auth.controller.ts";
+import express from "express";
+
+import { register, login } from "@/controllers/auth.controller";
 
 const router = express.Router();
 
