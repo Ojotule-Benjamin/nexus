@@ -14,7 +14,7 @@ beforeAll(async () => {
   const uri = mongo.getUri();
   await mongoose.connect(uri);
 
-  const hashedPassword = await bcrypt.hash("Password123@", 10);
+  const hashedPassword = await bcrypt.hash(process.env.LOGIN_TEST_SECRET!, 10);
   await user.create({
     firstName: "John",
     lastName: "Doe",
@@ -34,7 +34,7 @@ describe("Auth API - Login", () => {
       .post(`${getApiPath("/auth/login")}`)
       .send({
         email: "john@example.com",
-        password: "Password123@",
+        password: process.env.LOGIN_TEST_SECRET!,
       });
     expect(res.status).toBe(STATUS.BAD_REQUEST);
   });
@@ -45,7 +45,7 @@ describe("Auth API - Login", () => {
       .set("x-client-type", "entropy")
       .send({
         email: "john@example.com",
-        password: "Password123@",
+        password: process.env.LOGIN_TEST_SECRET!,
       });
     expect(res.status).toBe(STATUS.BAD_REQUEST);
   });
@@ -67,7 +67,7 @@ describe("Auth API - Login", () => {
       .set("x-client-type", "mobile")
       .send({
         email: "invalid-email",
-        password: "Password123@",
+        password: process.env.LOGIN_TEST_SECRET!,
       });
 
     expect(res.status).toBe(STATUS.BAD_REQUEST);
@@ -105,7 +105,7 @@ describe("Auth API - Login", () => {
       .set("x-client-type", "mobile")
       .send({
         email: "john@example.com",
-        password: "Password123@",
+        password: process.env.LOGIN_TEST_SECRET!,
       });
     expect(res.status).toBe(STATUS.OK);
     expect(res.body.data).toBeDefined();
@@ -119,7 +119,7 @@ describe("Auth API - Login", () => {
       .set("x-client-type", "mobile")
       .send({
         email: "john@example.com",
-        password: "Password123@",
+        password: process.env.LOGIN_TEST_SECRET!,
       });
     expect(res.status).toBe(STATUS.OK);
     expect(res.body.data).toBeDefined();
@@ -137,7 +137,7 @@ describe("Auth API - Login", () => {
       .set("x-client-type", "web")
       .send({
         email: "john@example.com",
-        password: "Password123@",
+        password: process.env.LOGIN_TEST_SECRET!,
       });
     expect(res.status).toBe(STATUS.OK);
     expect(res.body.data).toBeDefined();
